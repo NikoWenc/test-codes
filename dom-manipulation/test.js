@@ -1,14 +1,13 @@
 let arr = [5, 3, 8, 1];
 
-function filterRange(array, a, b){
-    return array.filter((item) => {
-        if (item >= a && item <= b){
-            return item;
+function filterRangeInPlace(array, a, b){
+    return array.filter((item, index) => {
+        if (item < a || item > b){
+            return array.splice(index,1);
         }
     })
 }
 
-let filtered = filterRange(arr, 1, 4);
+filterRangeInPlace(arr, 1, 4);
 
-alert( filtered );
 alert(arr)
