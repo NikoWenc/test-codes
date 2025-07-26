@@ -4,7 +4,7 @@ let mary = { name: "Mary", age: 28 };
 
 let arr = [ pete, john, mary ];
 
-function sortByAge(array){
-    return array.sort((a, b) => a.age - b.age)
+function getAverageAge(array){
+    return array.reduce((accum, toBeAdd) => (accum += toBeAdd.age) , 0) / array.length;
 }
-console.log(sortByAge(arr));
+console.log(getAverageAge(arr));
