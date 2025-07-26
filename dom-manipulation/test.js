@@ -1,16 +1,6 @@
-let users = [
-  {id: 'john', name: "John Smith", age: 20},
-  {id: 'ann', name: "Ann Smith", age: 24},
-  {id: 'pete', name: "Pete Peterson", age: 31},
-];
 
-function groupById(array){
-    return array.reduce((accum, item) => {
-        accum[item.id] = item;
-        return accum;
-}, {})
-};
+function camelize(str){
+    return str.split("-").map((item, index) => index == 0 ? item : item[0].toUpperCase() + item.slice(1)).join("")
+}
 
-let usersById = groupById(users);
-
-console.log(usersById);
+console.log(camelize("background-color-red"));
