@@ -1,6 +1,14 @@
+let arr = [5, 3, 8, 1];
 
-function camelize(str){
-    return str.split("-").map((item, index) => index == 0 ? item : item[0].toUpperCase() + item.slice(1)).join("")
+function filterRange(array, a, b){
+    return array.filter((item) => {
+        if (item >= a && item <= b){
+            return item;
+        }
+    })
 }
 
-console.log(camelize("background-color-red"));
+let filtered = filterRange(arr, 1, 4);
+
+alert( filtered );
+alert(arr)
