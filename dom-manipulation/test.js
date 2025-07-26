@@ -1,16 +1,16 @@
-
-function unique(arr) {
-    let newArr = [];
-    arr.filter((item) => {
-    if (!newArr.includes(item)) {
-        return newArr.push(item);
-    }
-    });
-    return newArr;
-}
-
-let strings = ["Hare", "Krishna", "Hare", "Krishna",
-  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+let users = [
+  {id: 'john', name: "John Smith", age: 20},
+  {id: 'ann', name: "Ann Smith", age: 24},
+  {id: 'pete', name: "Pete Peterson", age: 31},
 ];
 
-console.log(unique(strings));
+function groupById(array){
+    return array.reduce((accum, item) => {
+        accum[item.id] = item;
+        return accum;
+}, {})
+};
+
+let usersById = groupById(users);
+
+console.log(usersById);
