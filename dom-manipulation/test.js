@@ -1,5 +1,10 @@
-let arr = [5, 2, 1, -10, 8, 11];
+let arr = ["HTML", "JavaScript", "CSS"];
 
-arr.sort((a, b) => b - a);
+function copySorted(array){
+    return array.slice().sort();
+}
 
+let sorted = copySorted(arr);
+
+alert( sorted );
 alert( arr );
