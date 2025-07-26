@@ -1,10 +1,16 @@
-let john = { name: "John", age: 25 };
-let pete = { name: "Pete", age: 30 };
-let mary = { name: "Mary", age: 28 };
 
-let arr = [ pete, john, mary ];
-
-function getAverageAge(array){
-    return array.reduce((accum, toBeAdd) => (accum += toBeAdd.age) , 0) / array.length;
+function unique(arr) {
+    let newArr = [];
+    arr.filter((item) => {
+    if (!newArr.includes(item)) {
+        return newArr.push(item);
+    }
+    });
+    return newArr;
 }
-console.log(getAverageAge(arr));
+
+let strings = ["Hare", "Krishna", "Hare", "Krishna",
+  "Krishna", "Krishna", "Hare", "Hare", ":-O"
+];
+
+console.log(unique(strings));
