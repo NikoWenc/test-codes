@@ -35,9 +35,9 @@ container.appendChild(blackBorderDiv);
 const allBtn = document.querySelectorAll(".button");
 
 allBtn.forEach((item) => {
-    item.addEventListener("click", (event) => {
+    item.addEventListener("keydown", (event) => {
         const currentColer = event.target.style.backgroundColor;
         event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
-
+        console.log(event.code);
     })
 })
