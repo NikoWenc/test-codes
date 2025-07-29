@@ -32,12 +32,21 @@ blackBorderDiv.appendChild(meTooPara);
 // append to container div
 container.appendChild(blackBorderDiv);
 
-const allBtn = document.querySelectorAll(".button");
+const allBtn = document.querySelectorAll("button");
 
-allBtn.forEach((item) => {
-    item.addEventListener("keydown", (event) => {
-        const currentColer = event.target.style.backgroundColor;
-        event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
-        console.log(event.code);
-    })
-})
+const body = document.querySelector("body");
+
+body.addEventListener("keypress", (event) => {
+    const currentColer = event.target.style.backgroundColor;
+    switch (event.target.id){
+        case "button1": event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
+            console.log(event.type);
+            break;
+        case "button2": event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
+            console.log(event.key);
+            break;
+        case "button3": event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
+            console.log(event.code);
+            break;
+    }
+});
