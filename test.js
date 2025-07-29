@@ -32,21 +32,23 @@ blackBorderDiv.appendChild(meTooPara);
 // append to container div
 container.appendChild(blackBorderDiv);
 
-const allBtn = document.querySelectorAll("button");
+
 
 const body = document.querySelector("body");
 
-body.addEventListener("keypress", (event) => {
-    const currentColer = event.target.style.backgroundColor;
-    switch (event.target.id){
-        case "button1": event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
-            console.log(event.type);
-            break;
-        case "button2": event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
-            console.log(event.key);
-            break;
-        case "button3": event.target.style.backgroundColor = currentColer === "blue" ? '' : "blue";
-            console.log(event.code);
-            break;
-    }
-});
+const buttonContainer = document.querySelector("#button-container");
+
+function eventForButtonContainerChilds(type, element, func, parent = document) {
+    parent.addEventListener(type, (event) => {
+        if (event.target.matches(element)){
+            func(event);
+        }
+    })
+};
+
+eventForButtonContainerChilds("click", "button", (event) => {
+    const currentColor = event.target.style.backgroundColor;
+    event.target.style.backgroundColor = currentColor === "blue" ? '' : "blue";
+    console.log(event.type);
+}, buttonContainer);
+
