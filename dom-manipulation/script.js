@@ -6,8 +6,8 @@ const button = document.getElementById("button");
 
 // Create a function that will run in response to the button being clicked
 button.addEventListener("click", () =>{
+    if (input.value == '') return;
     const inputItem = input.value;
-
     const newList = document.createElement("li");
     const newSpan = document.createElement("span");
     const newButton = document.createElement("button");
@@ -23,7 +23,7 @@ button.addEventListener("click", () =>{
     ul.appendChild(newList);
 
     newButton.addEventListener("click", () => {
-    newList.parentNode.removeChild(newList);
+    ul.removeChild(newList);
 });
 });
 
