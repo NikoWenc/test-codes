@@ -38,7 +38,7 @@ const body = document.querySelector("body");
 
 const buttonContainer = document.querySelector("#button-container");
 
-function eventForButtonContainerChilds(type, element, func, parent = document) {
+function globalEventSetter(type, element, func, parent = document) {
     parent.addEventListener(type, (event) => {
         if (event.target.matches(element)){
             func(event);
@@ -46,7 +46,7 @@ function eventForButtonContainerChilds(type, element, func, parent = document) {
     })
 };
 
-eventForButtonContainerChilds("click", "button", (event) => {
+globalEventSetter("click", "button", (event) => {
     const currentColor = event.target.style.backgroundColor;
     event.target.style.backgroundColor = currentColor === "blue" ? '' : "blue";
     console.log(event.type);
