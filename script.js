@@ -23,7 +23,9 @@ button.addEventListener("click", () =>{
     ul.appendChild(newList);
 
     newButton.addEventListener("click", () => {
+    if (confirm("Are you Sure?")){
     ul.removeChild(newList);
+    }
 });
 });
 

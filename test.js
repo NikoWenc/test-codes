@@ -52,3 +52,12 @@ globalEventSetter("click", "button", (event) => {
     console.log(event.type);
 }, buttonContainer);
 
+const btn = document.querySelector(".btn");
+
+const newEvent = new Event("customEvent");
+
+btn.addEventListener("customEvent", (event) => {
+    console.log(event);
+})
+
+btn.dispatchEvent(newEvent);
