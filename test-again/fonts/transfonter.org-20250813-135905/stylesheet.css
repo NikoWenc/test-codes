@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Sword Art Online';
+    src: url('Sword-Art-Online.woff2') format('woff2'),
+        url('Sword-Art-Online.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,50 @@
+/* General setup */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('fonts/transfonter.org-20250813-135823/PlayfairDisplay-Black.woff2') format('woff2'),
+        url('fonts/transfonter.org-20250813-135823/PlayfairDisplay-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sword Art Online';
+    src: url('fonts/transfonter.org-20250813-135905/Sword-Art-Online.woff2') format('woff2'),
+        url('fonts/transfonter.org-20250813-135905/Sword-Art-Online.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+html {
+  font-size: 10px;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+body {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Typography */
+
+h1 {
+  font-size: 3.2rem;
+  font-family: 'Playfair Display';
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-family: 'Playfair Display';
+}
+
+p {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  word-spacing: 0.6rem;
+  font-family: 'Sword Art Online';
+}
