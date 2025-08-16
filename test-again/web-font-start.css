@@ -17,10 +17,21 @@
     font-display: swap;
 }
 
+:root.dark {
+  background-color: black;
+  --text-color: white; 
+}
+
+:root.white {
+  background-color: white;
+  --text-color: black; 
+}
+
 html {
   font-size: 10px;
   margin: 0;
   font-family: sans-serif;
+  color: var(--text-color);
 }
 
 body {
