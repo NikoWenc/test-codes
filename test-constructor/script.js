@@ -1,5 +1,6 @@
 function Book (tittle, author, pages) {
     if (!new.target){
+        // log this error if 'new' operator is not called
         throw Error("You must use the 'new' operator to call the constructor")
         
     }
@@ -10,4 +11,20 @@ function Book (tittle, author, pages) {
     this.info = () => `${this.tittle} by ${this.author}, ${this.pages} pages, ${this.read}`;
 }
 
+
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295);
+
+
+function Player(name, marker) {
+  if (!new.target) {
+    throw Error("You must use the 'new' operator to call the constructor");
+  }
+  this.name = name;
+  this.marker = marker;
+  this.sayName = function() {
+    console.log(this.name)
+  };
+}
+
+const player1 = new Player('steve', 'X');
+const player2 = new Player('also steve', 'O');
