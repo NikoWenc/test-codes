@@ -62,3 +62,24 @@ class Car extends Vehicle {
 }
 
 const myCar = new Car('Porche', '911', '2030', 2);
+
+
+// 4. BankAccount Class with Deposit and Withdrawal
+// Write a JavaScript program that creates a class called "BankAccount" with properties for account number and balance. Include methods to deposit and withdraw money from the account. Create some instances of the "BankAccount" class, deposit some money, and withdraw a portion of it.
+
+class BankAccount {
+    constructor(accountNumber, balance){
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    deposit(depositAmount){
+        this.balance = this.balance + depositAmount;
+    }
+
+    widthdraw(withdrawAmount){
+        this.balance = this.balance - withdrawAmount;
+    }
+}
+
+const myBank = new BankAccount('0o103', 100000000);
