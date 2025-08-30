@@ -83,3 +83,34 @@ class BankAccount {
 }
 
 const myBank = new BankAccount('0o103', 100000000);
+
+
+// 5. Shape, Circle, and Triangle Classes with Area Calculation
+// Write a JavaScript program that creates a class called 'Shape' with a method to calculate the area. Create two subclasses, 'Circle' and 'Triangle', that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.
+
+class Shape {
+    constructor(width, height){
+        this.width = width;
+        this.height = height;
+    }
+
+    get area(){
+        this.area = this.height * this.width;
+    }
+}
+
+class Circle extends Shape{
+    constructor(width, height){
+        super(width, height);
+    }
+
+}
+
+class Triangle extends Shape{
+    constructor(width, height){
+        super(width, height);
+    }
+}
+
+const circle = new Circle(10, 10);
+const triangle = new Triangle(20, 20);
