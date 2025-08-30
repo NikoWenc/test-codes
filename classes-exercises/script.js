@@ -249,10 +249,93 @@ sampleBank.addBranch('Baguio');
 // 10. Product and PersonalCareProduct Classes with Warranty
 // Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
 
+class Product {
+    constructor(productID, productName, productPrice){
+        this.productID = productID;
+        this,productName = productName;
+        this.productPrice = productPrice;
+    }
 
+    totalPrice(quantity){
+        return this.productPrice * quantity;
+    }
+}
+
+class PersonalCareProduct extends Product {
+    constructor(productID, productName, productPrice, warrantyPeriod){
+        super(productID, productName, productPrice);
+        this.warrantyPeriod = warrantyPeriod;
+    }
+
+    totalPrice(quantity){
+        return super.totalPrice(quantity) + ' ' + this.warrantyPeriod;
+    }
+}
+
+const soap = new PersonalCareProduct('fakeId', 'safeG', 20, '7/01/2038');
+soap.totalPrice(10);
 
 // 11. BankAccount Class with Transfers Between Accounts
 // Write a JavaScript program that creates a class called BankAccount with properties for account number, account holder name, and balance. Include methods to deposit, withdraw, and transfer money between accounts. Create multiple instances of the BankAccount class and perform operations such as depositing, withdrawing, and transferring money.
+
+class BankAccount {
+    constructor(accountNumber, accountName, accountBalance){
+        this.accountNumber = accountNumber;
+        this.accountName = accountName;
+        this.accountBalance = accountBalance;
+
+        // push the instance of BankAccount to the accounts array
+        this.constructor.bankAccounts.push(this);
+    }
+
+    static bankAccounts = [];
+
+    static findAccount(accountNumber){
+        return this.bankAccounts.find(acc => accountNumber === acc.accountNumber);
+    }
+    
+
+    viewAllAccounts(){
+        console.table(this.constructor.bankAccounts);
+    }
+
+
+    deposit(depositAmount){
+        this.accountBalance += depositAmount;
+    }
+
+
+    withdraw(withdrawAmount){
+
+        if (this.accountBalance < withdrawAmount) return;
+
+        this.accountBalance -= withdrawAmount;
+    }
+    
+
+    transfer(amount, transfereeAccountNumber){
+
+        const account = this.constructor.findAccount(transfereeAccountNumber);
+
+        if (!account) {
+            console.log(`account is not found`);
+            return;
+        }
+
+        if (this.accountBalance < amount) {
+            console.log(`account balance is not enough`);
+            return;
+        }
+
+        account.deposit(amount);
+        this.withdraw(amount);
+        this.viewAllAccounts();
+    }
+}
+
+const myAccount1 = new BankAccount('0000', 'Niko', 20);
+const myAccount2 = new BankAccount('1111', 'okin', 30);
+
 
 
 
