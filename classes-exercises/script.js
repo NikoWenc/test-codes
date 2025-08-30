@@ -227,13 +227,7 @@ class Bank {
     }
 
     removeBranch(branchName){
-        return this.branches.map((branch, index) => {
-
-            if (branchName === branch) {
-                this.branches.splice(index, 1);
-            }
-
-        })
+        return this.branches = this.branches.filter(branch => branch !== branchName);
     }
 
     displayAllBranches(){
@@ -311,7 +305,7 @@ class BankAccount {
 
         this.accountBalance -= withdrawAmount;
     }
-    
+
 
     transfer(amount, transfereeAccountNumber){
 
@@ -337,7 +331,39 @@ const myAccount1 = new BankAccount('0000', 'Niko', 20);
 const myAccount2 = new BankAccount('1111', 'okin', 30);
 
 
-
-
 // 12. University Class with Department Management
 // Write a JavaScript program that creates a class called University with properties for university name and departments. Include methods to add a department, remove a department, and display all departments. Create an instance of the University class and add and remove departments. 
+
+class University {
+    constructor(universityName){
+        this.universityName = universityName;
+        this.departments = [];
+    };
+
+    addDepartment(deptName){
+        const dept = this.departments.find(dept => this.departments === dept);
+
+        if (dept) return `Department already added`;
+
+        this.departments.push(deptName);
+    };
+
+    removeDepartment(deptName){
+        const dept = this.departments.find(dept => this.departments === dept);
+        console.log(dept);
+
+        if (dept == undefined) return `Department Not Found`;
+        
+        return this.departments = this.departments.filter(name => name !== deptName);
+    };
+
+    displayAllDept(){
+        return this.departments.map(dept => console.log(dept));
+    }
+}
+
+const lpu = new University('LPU-B');
+lpu.addDepartment('ccs');
+lpu.addDepartment('ceas');
+lpu.addDepartment('nursing');
+lpu.displayAllDept();
