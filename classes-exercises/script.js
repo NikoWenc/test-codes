@@ -208,13 +208,43 @@ class Dog extends Animal {
 }
 
 const spike = new Dog('aspin', 'grrrrr', 'brown');
-
+spike.makeSound;
+spike.makeSound = 'dame un grrrrrr';
+spike.makeSound;
 
 
 // 9. Bank Class with Branch Management
 // Write a JavaScript program that creates a class called Bank with properties for bank names and branches. Include methods to add a branch, remove a branch, and display all branches. Create an instance of the Bank class and perform operations to add and remove branches.
 
+class Bank {
+    constructor(bankName){
+        this.bankName = bankName;
+        this.branches = [];
+    }
 
+    addBranch(branchName){
+        return this.branches.push(branchName);
+    }
+
+    removeBranch(branchName){
+        return this.branches.map((branch, index) => {
+
+            if (branchName === branch) {
+                this.branches.splice(index, 1);
+            }
+
+        })
+    }
+
+    displayAllBranches(){
+        return this.branches.map(branch => console.log(branch));
+    }
+}
+
+const sampleBank = new Bank('BDO');
+sampleBank.addBranch('Manila');
+sampleBank.addBranch('Batangas');
+sampleBank.addBranch('Baguio');
 
 // 10. Product and PersonalCareProduct Classes with Warranty
 // Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
