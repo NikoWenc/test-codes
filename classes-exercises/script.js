@@ -95,7 +95,7 @@ class Shape {
     }
 
     get area(){
-        this.area = this.height * this.width;
+        return this.height * this.width;
     }
 }
 
@@ -114,3 +114,117 @@ class Triangle extends Shape{
 
 const circle = new Circle(10, 10);
 const triangle = new Triangle(20, 20);
+
+
+// 6. Employee and Manager Classes with Salary Calculation
+// Write a JavaScript program that creates a class called 'Employee' with properties for name and salary. Include a method to calculate annual salary. Create a subclass called 'Manager' that inherits from the 'Employee' class and adds an additional property for department. Override the annual salary calculation method to include bonuses for managers. Create two instances of the 'Manager' class and calculate their annual salary. 
+
+class Employee {
+    constructor(name, salary){
+        this.name = name;
+        this.salary = salary;
+    }
+
+    annualSalary(){
+        return this.salary * 12;
+    }
+}
+
+class Manager extends Employee {
+    constructor(name, salary, department){
+        super(name, salary);
+        this.department = department;
+    }
+
+    annualSalary(){
+        return this.salary + (this.salary * 12);
+    }
+}
+
+const manager1 = new Manager('niko', 200000, 'Web Developer');
+const manager2 = new Manager('okin', 190000, 'Web Developer');
+
+
+// 7. Book and Ebook Classes with Price
+// Write a JavaScript program that creates a class `Book` with properties for title, author, and publication year. Include a method to display book details. Create a subclass called 'Ebook' that inherits from the 'Book' class and includes an additional property for book price. Override the display method to include the book price. Create an instance of the 'Ebook' class and display its details.
+
+class Book {
+    constructor(tittle, author, publicationYear){
+        this.tittle = tittle;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
+
+    bookDetails(){
+        return `The Book '${this.tittle}' by ${this.author} was published by the year ${this.publicationYear}`;
+    }
+}
+
+class Ebook extends Book {
+    constructor(tittle, author, publicationYear, bookPrice){
+        super(tittle, author, publicationYear);
+        this.bookPrice = bookPrice;
+    }
+
+    bookDetails(){
+        return `The Book '${this.tittle}' by ${this.author} was published by the year ${this.publicationYear} and the price was $${this.bookPrice}`;
+    }
+}
+
+const sampleBook = new Ebook('How to be super', 'niko', 2035, 500);
+
+
+// 8. Animal and Dog Classes with Sound
+// Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound.
+
+class Animal {
+    constructor(species, sound){
+        this.species = species;
+        this.sound = sound;
+    }
+
+    get makeSound(){
+        return this.sound;
+    }
+
+    set makeSound(newSound){
+        this.sound = newSound;
+    }
+}
+
+class Dog extends Animal {
+    constructor(species, sound, color){
+        super(species, sound);
+        this.color = color;
+    }
+
+    get makeSound(){
+        return super.makeSound + ' ' + this.color;
+    }
+
+    set makeSound(newSound){
+        super.makeSound = newSound;
+    }
+}
+
+const spike = new Dog('aspin', 'grrrrr', 'brown');
+
+
+
+// 9. Bank Class with Branch Management
+// Write a JavaScript program that creates a class called Bank with properties for bank names and branches. Include methods to add a branch, remove a branch, and display all branches. Create an instance of the Bank class and perform operations to add and remove branches.
+
+
+
+// 10. Product and PersonalCareProduct Classes with Warranty
+// Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.
+
+
+
+// 11. BankAccount Class with Transfers Between Accounts
+// Write a JavaScript program that creates a class called BankAccount with properties for account number, account holder name, and balance. Include methods to deposit, withdraw, and transfer money between accounts. Create multiple instances of the BankAccount class and perform operations such as depositing, withdrawing, and transferring money.
+
+
+
+// 12. University Class with Department Management
+// Write a JavaScript program that creates a class called University with properties for university name and departments. Include methods to add a department, remove a department, and display all departments. Create an instance of the University class and add and remove departments. 
