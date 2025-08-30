@@ -341,7 +341,7 @@ class University {
     };
 
     addDepartment(deptName){
-        const dept = this.departments.find(dept => this.departments === dept);
+        const dept = this.departments.find(dept => deptName === dept);
 
         if (dept) return `Department already added`;
 
@@ -349,16 +349,15 @@ class University {
     };
 
     removeDepartment(deptName){
-        const dept = this.departments.find(dept => this.departments === dept);
-        console.log(dept);
+        const dept = this.departments.find(dept => deptName === dept);
 
-        if (dept == undefined) return `Department Not Found`;
+        if (!dept) return `Department Not Found`;
         
         return this.departments = this.departments.filter(name => name !== deptName);
     };
 
     displayAllDept(){
-        return this.departments.map(dept => console.log(dept));
+        return this.departments.forEach(dept => console.log(dept));
     }
 }
 
